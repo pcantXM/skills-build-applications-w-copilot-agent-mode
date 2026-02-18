@@ -68,13 +68,36 @@ DATABASES = {
         'CLIENT': {
             'host': os.environ.get('MONGODB_HOST', 'localhost'),
             'port': int(os.environ.get('MONGODB_PORT', '27017')),
-            'username': os.environ.get('MONGODB_USERNAME', ''),
-            'password': os.environ.get('MONGODB_PASSWORD', ''),
-            'authSource': os.environ.get('MONGODB_AUTH_SOURCE', 'admin'),
-            'authMechanism': os.environ.get('MONGODB_AUTH_MECHANISM', 'SCRAM-SHA-1'),
         },
     }
 }
+
+_mongo_username = os.environ.get('MONGODB_USERNAME', '').strip()
+_mongo_password = os.environ.get('MONGODB_PASSWORD', '').strip()
+_mongo_auth_mechanism = os.environ.get('MONGODB_AUTH_MECHANISM', '').strip()
+
+if _mongo_username:
+    DATABASES['default']['CLIENT']['username'] = _mongo_username
+if _mongo_password:
+    DATABASES['default']['CLIENT']['password'] = _mongo_password
+
+if _mongo_username or _mongo_password:
+    DATABASES['default']['CLIENT']['authSource'] = os.environ.get('MONGODB_AUTH_SOURCE', 'admin')
+
+if _mongo_auth_mechanism:
+    normalized_auth_mechanism = _mongo_auth_mechanism.replace('_', '-').upper()
+    valid_auth_mechanisms = {
+        'SCRAM-SHA-256',
+        'DEFAULT',
+        'SCRAM-SHA-1',
+        'GSSAPI',
+        'MONGODB-AWS',
+        'MONGODB-CR',
+        'MONGODB-X509',
+        'PLAIN',
+    }
+    if normalized_auth_mechanism in valid_auth_mechanisms:
+        DATABASES['default']['CLIENT']['authMechanism'] = normalized_auth_mechanism
 
 AUTH_PASSWORD_VALIDATORS = []
 
