@@ -1,0 +1,125 @@
+.app-shell {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e8f1ff 0%, #f5fbff 45%, #ecfdf5 100%);
+  color: #17324d;
+}
+
+.navbar {
+  border: 1px solid #d6e9ff;
+  background: linear-gradient(90deg, #ffffff 0%, #f1f8ff 100%) !important;
+}
+
+.navbar .nav-link {
+  font-weight: 600;
+  color: #24507d;
+  border-radius: 0.6rem;
+  padding: 0.45rem 0.75rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+  background-color: #dff0ff;
+  color: #12385a;
+}
+
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 0.55rem;
+  box-shadow: 0 4px 10px rgba(0, 72, 153, 0.22);
+}
+
+.brand-title {
+  color: #13548b;
+}
+
+.card {
+  border-radius: 0.9rem;
+  border: 1px solid #d6e8ff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #0f4c81;
+}
+
+p,
+span,
+td,
+th,
+label,
+small {
+  color: #1a3f63;
+}
+
+a:not(.btn),
+.link-primary {
+  color: #0a5da8 !important;
+}
+
+a:not(.btn):hover,
+.link-primary:hover {
+  color: #08467f !important;
+}
+
+.btn,
+.btn:visited,
+.btn:hover,
+.btn:focus {
+  color: #ffffff !important;
+}
+
+.btn-outline-primary,
+.btn-outline-primary:visited,
+.btn-outline-primary:focus {
+  color: #0b6bb8 !important;
+}
+
+.table td,
+.table th {
+  white-space: nowrap;
+}
+
+.table thead th {
+  background-color: #dff0ff !important;
+  color: #0f4c81;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #f6fbff;
+}
+
+.table tbody tr:hover {
+  background-color: #e7f4ff !important;
+}
+
+.btn-primary {
+  background-color: #0b6bb8;
+  border-color: #0b6bb8;
+}
+
+.btn-primary:hover {
+  background-color: #085894;
+  border-color: #085894;
+}
+
+.btn-outline-primary {
+  color: #0b6bb8;
+  border-color: #0b6bb8;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0b6bb8;
+  color: #fff;
+}
+
+.modal pre {
+  font-size: 0.875rem;
+  max-height: 380px;
+  overflow: auto;
+}
