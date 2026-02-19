@@ -15,7 +15,7 @@ function getPrimaryValue(item, fields) {
 }
 
 function ResourceTableView({ title, endpointPath, primaryFields }) {
-  const endpoint = `${baseUrl}${endpointPath}`;
+  const endpoint = endpointPath.startsWith('http') ? endpointPath : `${baseUrl}${endpointPath}`;
   const [items, setItems] = useState([]);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
